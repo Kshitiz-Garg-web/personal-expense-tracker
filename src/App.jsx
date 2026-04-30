@@ -23,17 +23,12 @@ function App() {
   // const [editableMode, setEditableMode] = useState(false)
   const [editableMode, setEditableMode] = useLocalStorage('editableMode', false)
   // const [rowId, setRowId] = useState({})
-    const [rowId, setRowId] = useLocalStorage('rowId', {})
-
-  const [rawData, setRawData] = useLocalStorage('myNum', [1, 2, 3, 4, 5])
+  const [rowId, setRowId] = useLocalStorage('rowId', {})
 
   return (
     <>
       <main>
-        <h1 onClick={(() => setRawData((pre) => [...pre, 6, 7, 8, 9, 10]))}>Track Your Expense
-          <br />
-          {rawData}
-        </h1>
+        <h1>Track Your Expense</h1>
         <div className="expense-tracker">
           <ExpenseForm editableMode={editableMode} setExpenses={setExpenses} obj={obj} setObj={setObj} rowId={rowId} setEditableMode={setEditableMode} />
           <ExpenseTable expenses={expenses} setExpenses={setExpenses} setObj={setObj} setEditableMode={setEditableMode} setRowId={setRowId} rowId={rowId} />
